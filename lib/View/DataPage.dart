@@ -69,9 +69,9 @@ class _GetPageState extends State<GetPage> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           apiBloc.add(ApiPostEvent(path: '/posts', jsonMap: const {
-            'title': 'Akshit is a Flutter Teacher',
-            'body': 'Akshit makes good Bloc videos',
-            'userId': "34",
+            'title': 'Eve is good at Flutter',
+            'body': 'Eve made it',
+            'userId': "111",
           }));
         },
       ),
