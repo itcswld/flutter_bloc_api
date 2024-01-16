@@ -1,0 +1,6 @@
+name: authentication_repo
+description: manages the auth domain
+publish_to: nono
+
+environment:
+  sdk:  ">=3.0.0 <4.0.0"

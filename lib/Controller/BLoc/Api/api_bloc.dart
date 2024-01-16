@@ -14,21 +14,17 @@ class ApiBloc extends Bloc<ApiEvent, ApiState> {
       emit(ApiGetOnloadState());
       ApiRespModel resp =
           await ApiHttpRepo(path: event.path, jsonMap: event.jsonMap).get();
-      if (resp.status) {
-        emit(ApiGetSuccessState(apiRespModel: resp));
-      } else {
-        emit(ApiGetErrState());
-      }
+      resp.status
+          ? emit(ApiGetSuccessState(apiRespModel: resp))
+          : emit(ApiGetErrState());
     });
     //POST
     on<ApiPostEvent>((event, emit) async {
       ApiRespModel resp =
           await ApiHttpRepo(path: event.path, jsonMap: event.jsonMap).post();
-      if (resp.status) {
-        emit(ApiPostSuccessState(apiRespModel: resp));
-      } else {
-        emit(ApiPostErrState());
-      }
+      resp.status
+          ? emit(ApiPostSuccessState(apiRespModel: resp))
+          : emit(ApiPostErrState());
     });
   }
 }
